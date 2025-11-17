@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cool Website</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Reset and fonts */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Animated background gradient */
+body::before {
+    content: '';
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: -2;
+    background: linear-gradient(270deg, #1f1c2c, #928dab, #ff6b6b, #1f1c2c);
+    background-size: 800% 800%;
+    animation: gradientShift 30s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0,0,0,0.4);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Contact Me text in nav */
+nav .contact-text {
+    position: absolute;
+    left: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+
+nav .contact-text:hover {
+    color: #f39c12;
+}
+
+nav .contact-text span {
+    display: inline-block;
+    transition: transform 0.4s ease;
+}
+
+nav .contact-text:hover span {
+    transform: rotate(360deg);
+}
+
+/* Header */
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
+    position: relative;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+    color: #f0f0f0;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+header.show h1 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Interactive Video Section */
+#video-section {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+    perspective: 1000px;
+    background: rgba(0,0,0,0.2);
+}
+
+.video-card {
+    width: 600px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.video-card:hover {
+    transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+}
+
+.video-card video {
+    display: block;
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px 50px;
+    text-align: center;
+}
+
+footer p {
+    color: #ccc;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: -4px 0 12px rgba(0,0,0,0.5);
+    transition: 0.4s;
+    z-index: 20;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar h2 {
+    color: #f39c12;
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #f39c12;
+}
+
+.sidebar img {
+    width: 24px;
+    height: 24px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="contact-text" onclick="toggleSidebar()">Contact Me <span>+</span></div>
+    <div class="logo">Bruuh_its_gilo</div>
+</nav>
+
+<header id="home">
+    <h1>☮ Ƥ𝒆𝒶𝕔𝔼 ☮</h1>
+</header>
+
+<!-- Interactive Video Section -->
+<section id="video-section">
+    <div class="video-card">
+        <video id="myvideo"poster=that.jpg width="600" muted
+ loop>
+            <source src="cool-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Bruuh_its_gilo. All rights reserved.</p>
+</footer>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <h2>Contact Me</h2>
+    <a href="https://instagram.com/Bruuh_its_gilo_" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"> Instagram
+    </a>
+</div>
+
+<script>
+// Sidebar toggle
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('active');
+}
+
+// Scroll-triggered header animation
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('header').forEach(el => observer.observe(el));
+
+// Interactive video hover/click and double-click
+const video = document.getElementById('myVideo');
+const card = document.querySelector('.video-card');
+let controlsAdded = false;
+
+// Hover: play if controls not added
+card.addEventListener('mouseenter', () => {
+    if (!controlsAdded) video.play();
+});
+card.addEventListener('mouseleave', () => {
+    if (!controlsAdded) video.pause();
+});
+
+// Click: toggle play/pause
+card.addEventListener('click', () => {
+    if (!controlsAdded) {
+        if(video.paused) video.play();
+        else video.pause();
+    }
+});
+
+// Double-click: switch to standard video player with controls
+card.addEventListener('dblclick', () => {
+    controlsAdded = true;               // disable hover behavior
+    video.muted = false;                // enable sound
+    video.loop = false;                 // normal video playback
+    video.setAttribute('controls',''); // show controls
+    video.play();                       // start playing
+    card.style.transform = 'none';      // stop tilt effect
+});
+</script>
+
+</body>
+</html>
